@@ -1,0 +1,8 @@
+#modify in root user with command # crontab -e
+#write the line :wq
+#view changes crontab -l
+#Every 5 minutes
+#*/5 * * * * /home/jorge2/workspace/TimeLapseScript/script.sh
+#Every 1 minutes the script take 5 pictures each 10 seconds
+#(1 pic / 10 sec)
+*/1 * * * * /home/jorge2/workspace/TimeLapseScript/tomarFotos.sh &>/tmp/mycommand.log

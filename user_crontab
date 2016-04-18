@@ -1,5 +1,0 @@
-#modify user crontab -e
-#write the line :wq
-#view changes crontab -l
-*/5 * * * * /home/jorge2/workspace/TimeLapseScript/script.sh
-#*/1 * * * * /home/jorge2/workspace/TimeLapseScript/script.sh &>/tmp/mycommand.log
