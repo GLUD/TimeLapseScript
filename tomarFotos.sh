@@ -14,13 +14,14 @@ devCam=$(ls /dev/v4l/by-id/usb-* | head -1)
 dirDia=`date +%Y-%m-%d`
 directorio="$directorio$dirDia"
 if ! [ -d "$directorio" ]; then
- mkdir $directorio
+ mkdir -p $directorio
  chown "$usuario:$grupo" $directorio -R
 fi
 
 function tomarFoto {
  nombreArchivo=$directorio/pic_`date +%F_%T`.jpeg
  ffmpeg -f video4linux2 -i $devCam -vframes 1 $nombreArchivo
+ cp $nombreArchivo /tmp
  chown "$usuario:$grupo" $nombreArchivo
 }
 
