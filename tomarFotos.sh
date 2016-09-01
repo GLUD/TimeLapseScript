@@ -14,7 +14,7 @@ devCam=$(ls /dev/v4l/by-id/usb-* | head -1)
 dirDia=`date +%Y-%m-%d`
 directorio="$directorio$dirDia"
 if ! [ -d "$directorio" ]; then
- mkdir -p $directorio
+ mkdir $directorio
  chown "$usuario:$grupo" $directorio -R
 fi
 
