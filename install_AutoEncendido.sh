@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 #se copia el script a la carpeta init.d
 sudo cp configurarAutoEncendidoDia.sh /etc/init.d/
 #se pone el comando como un demonio, es decir, se inicia con el sistema
