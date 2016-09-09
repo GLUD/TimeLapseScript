@@ -1,0 +1,22 @@
+#!/bin/bash
+#rationale: se valida si es root, de lo contrario, usa sudo para las operaciones
+# que requieren privilegios de root
+SUDO=''
+if [ "$USER" != "root" ]
+then
+  SUDO='sudo'
+fi
+
+if [ -f /etc/cron.d/encender ]
+then
+  echo 'El servicio ya está instalado.'
+else
+#rationale: copio el script a una ubicación natural de software instalado manualmente
+$SUDO cp tomarFotos.sh /usr/local/bin/configurarAutoEncendidoDia.sh
+
+#rationale: creo un archivo que lee el servicio/demonio CRON se ejecuta cada minuto
+$SUDO tee /etc/cron.d/encender << EOF
+*/0 8 * * * root /usr/local/bin/configurarAutoEncendidoDia.sh &>/tmp/mycommand.log
+EOF
+fi
+
