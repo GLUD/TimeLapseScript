@@ -1,4 +1,7 @@
+#!/bin/bash
 #Se resetea el archivo
-echo 0 > /sys/class/rtc/rtc0/wakealarm
-#Se configura que al día siguiente se enciende a las 8am
-echo `date '+%s' -d 'tomorrow 8:00'` > /sys/class/rtc/rtc0/wakealarm
+sh -c "echo 0 > /sys/class/rtc/rtc0/wakealarm"
+#Se configura que al día siguiente se enciende a las 6am
+sh -c "echo `date '+%s' -d 'tomorrow 6:00'` > /sys/class/rtc/rtc0/wakealarm"
+
+
