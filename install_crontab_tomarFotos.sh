@@ -12,10 +12,10 @@ then
   echo 'El servicio ya está instalado.'
 else
 #rationale: copio el script a una ubicación natural de software instalado manualmente
-$SUDO cp tomarFotos.sh /usr/local/bin/configurarAutoEncendidoDia.sh
+$SUDO cp -R tomarFotos.sh /usr/local/bin/
 
 #rationale: creo un archivo que lee el servicio/demonio CRON se ejecuta cada minuto
 $SUDO tee /etc/cron.d/tomarFotos << EOF
-*/1 * * * * root /usr/local/bin/configurarAutoEncendidoDia.sh &>/tmp/mycommand.log
+*/1 * * * * root /usr/local/bin/tomarFotos.sh &>/tmp/mycommand.log
 EOF
 fi
